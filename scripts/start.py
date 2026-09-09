@@ -59,12 +59,12 @@ def improve_message(message, analyzer):
     return score, advice
 
 
-def generate_best_message(message, analyzer):
+def generate_best_message(diff, message, analyzer):
     score, advice = improve_message(message, analyzer)
     retry = 0
     while score < MIN_SCORE and retry < MAX_RETRIES:
         print(f"Current score: {score}. New attempt")
-        message = generate_better_commit_message(message, advice)
+        message = generate_better_commit_message(diff, message, advice)
         if "think" in message:
             message = message.splitlines()[-1]
         print(f"Generated: {message}")
@@ -91,7 +91,7 @@ def prepare():
         print(f"Diff size: {len(diff)} characters")
         analyzer = CommitAnalyzer()
         message = generate_message(diff)
-        message = generate_best_message(message, analyzer)
+        message = generate_best_message(diff, message, analyzer)
         commit(message)
 
     except GittedError as error:
