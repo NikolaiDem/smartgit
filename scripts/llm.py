@@ -1,12 +1,33 @@
 import os
 import httpx
+import requests
 
+from errors import AuthError
 from langchain_openai import ChatOpenAI
-from secret import get_token
 
+
+def get_token() -> str:
+    try:
+        host = os.environ.get('SMART_GIT_LLM_HOST')
+        response = requests.post(
+            f'https://{host}/login',
+            data={'username': os.environ.get('SMART_GIT_LLM_USER'), 'password': os.environ.get('SMART_GIT_LLM_PASSWORD')},
+            timeout=20,
+            verify=False
+        )
+        response.raise_for_status()
+        return response.json()['access_token']
+    except Exception as e:
+        raise AuthError(
+            "Authentication failed",
+            step='auth',
+            cause=e,
+        ) from e
+    
+    
 def request(prompt):
-    model = os.environ.get('MODEL')
-    proxy = os.environ.get('LLM_HOST')
+    model = os.environ.get('SMART_GIT_LLM_MODEL')
+    proxy = os.environ.get('SMART_GIT_LLM_HOST')
     if not proxy:
         return 'fix'
 
