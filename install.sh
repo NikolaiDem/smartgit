@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 BIN_DIR="$HOME/.local/bin"
 mkdir -p "$BIN_DIR"
 
