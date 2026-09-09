@@ -77,15 +77,18 @@ Here is the recommendation for improving the commit message:
 "{advice}"
 
 Use this text as a source of inspiration.
+"""
 
-Let me show you the changes as they are printed by 'git diff':
+    if diff:
+        prompt += f"""
+        Let me show you the changes as they are printed by 'git diff':
 
 ```
 
 {diff}
 
 ```
-"""
+        """
 
     prompt += f"""
 
@@ -93,3 +96,4 @@ Let me show you the changes as they are printed by 'git diff':
 """
 
     return _generate(prompt)
+
