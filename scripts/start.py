@@ -3,7 +3,6 @@ import subprocess
 from commit_analyzer import CommitAnalyzer
 from diff2msg import generate_commit_message, generate_better_commit_message
 from errors import GittedError
-from secret import init
 
 
 MAX_RETRIES = 6
@@ -85,7 +84,6 @@ def commit(message):
 
 def prepare():
     try:
-        init()
         diff = get_diff()
         if not diff.strip():
             print("No changes to commit")
