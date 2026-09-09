@@ -3,6 +3,7 @@ SMART_GIT_LLM_MODEL
 SMART_GIT_LLM_HOST
 SMART_GIT_LLM_USER
 SMART_GIT_LLM_PASSWORD
+NO_PROXY (равен SMART_GIT_LLM_USER)
 
 python -m pip install -r requirements.txt
 
