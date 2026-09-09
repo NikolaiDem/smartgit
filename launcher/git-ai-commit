@@ -1,3 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-python "$HOME/git-ai-commit/main.py" "$@"
+PYTHON=$(which python)
+
+if [ -z "$PYTHON" ]; then
+    echo "Python не найден" 
+    exit 1 
+fi
+
+"$PYTHON" "$HOME/git-ai-commit/start.py" "$@"
