@@ -1,3 +1,9 @@
+Добавить в переменные среды:
+SMART_GIT_LLM_MODEL
+SMART_GIT_LLM_HOST
+SMART_GIT_LLM_USER
+SMART_GIT_LLM_PASSWORD
+
 python -m pip install -r requirements.txt
 
 Сделай исполняемым:
