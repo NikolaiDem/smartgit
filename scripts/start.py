@@ -79,7 +79,7 @@ def commit(message):
     commit_message = f"{task_number}: {message}"
     print(f"Commit: {commit_message}")
     run_git("commit", "-m", commit_message)
-    run_git("push")
+    #run_git("push")
 
 
 def prepare():
