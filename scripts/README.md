@@ -14,3 +14,7 @@ chmod +x ~/.local/bin/git-ai-commit
 
 Для преобразования в bash формат выполнить
 sed -i 's/\r$//' ~/.local/bin/git-ai-commit
+
+python -m pip install --upgrade pip "setuptools"
+python -m pip install --upgrade Cython
+python -m pip install --upgrade PyYAML
