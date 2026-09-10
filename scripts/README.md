@@ -10,7 +10,7 @@ python -m pip install -r requirements.txt
 Сделай исполняемым:
 chmod +x ~/.local/bin/git-ai-commit
 
-Добавить в переменные среды PATH C:\Users\U_M27C4\.local\bin
+Добавить в переменные среды PATH C:\Users\username\.local\bin
 
 Для преобразования в bash формат выполнить
 sed -i 's/\r$//' ~/.local/bin/git-ai-commit
